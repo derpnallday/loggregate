@@ -56,3 +56,6 @@ Route::get('/search', 'SearchController@index')->name('search');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/settings', 'UserController@update_avatar');
+
+//update theme 
+Route::post('/themes', 'UserController@update_theme')->name('update_theme');

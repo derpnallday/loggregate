@@ -21,11 +21,6 @@
     <link href="{{ asset('css/search.css') }}" rel="stylesheet" >
     <link href="{{ asset('css/coursehome.css') }}" rel="stylesheet" >
 
-    
-
-
-
-
 
 
 </head>
@@ -54,7 +49,7 @@
                             <a class="nav-link" href="{{ route('search') }}">SUBSCRIBE TO COURSES</a>
                         </li>
                         <li class="nav-item link">
-                            <a class="nav-link" href="{{ route('secret') }}">SECRET</a>
+                            <a class="nav-link" href="{{ route('about') }}">About</a>
                         </li>
                         @else
                         @endauth

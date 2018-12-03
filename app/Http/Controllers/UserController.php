@@ -42,4 +42,11 @@ class UserController extends Controller
             ->with('success','You have successfully uploaded your image.');
 
     }
+
+    public function update_theme(){
+        $theme = $_GET[0];
+        return var_dump($theme);
+
+
+    }
 }
