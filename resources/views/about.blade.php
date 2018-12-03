@@ -4,8 +4,6 @@
 <div class="container">
 
     <div class="row justify-content-center">
-
-
         <p align="center"><img src= "images/Logo.png"></p>
         <div>
 

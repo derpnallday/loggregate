@@ -30,6 +30,8 @@
     ?>
     <div class="jumbotron text-center">
         <div class="container">
+        <p align="center"><img src= "images\Logo.png"></p>
+        <img src="images/Logo.png">
         <?php
             if($studygroup[0]->ownerID==\Auth::user()->id){
             echo '

@@ -21,6 +21,13 @@
     <link href="{{ asset('css/search.css') }}" rel="stylesheet" >
     <link href="{{ asset('css/coursehome.css') }}" rel="stylesheet" >
 
+    
+
+
+
+
+
+
 </head>
 <body>
     <div id="app">
@@ -47,7 +54,7 @@
                             <a class="nav-link" href="{{ route('search') }}">SUBSCRIBE TO COURSES</a>
                         </li>
                         <li class="nav-item link">
-                            <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
+                            <a class="nav-link" href="{{ route('secret') }}">SECRET</a>
                         </li>
                         @else
                         @endauth
@@ -68,7 +75,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img width="20px" height="20px" src="{{ asset('storage/avatars/'.Auth::user()->avatar) }}">
+                                <!-- <img width="20px" height="20px" src="{{ asset('uploads/avatars/'.Auth::user()->avatar) }}"> -->
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 

@@ -54,7 +54,8 @@
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Theme
             <span class="caret"></span></button>
-              <a href="#" class="dropdown" data-toggle="dropdown"> <b class="caret"></b></a>
+            <li class="dropdown">
+              <a href="#" class="dropdown" data-toggle="dropdown">Themes <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#" data-theme="default" class="theme-link">Default</a></li>
                 <li><a href="#" data-theme="amelia" class="theme-link">Amelia</a></li>
@@ -69,6 +70,7 @@
                 <li><a href="#" data-theme="spacelab" class="theme-link">Spacelab</a></li>
                 <li><a href="#" data-theme="united" class="theme-link">United</a></li>
             </ul>
+        </li>
     </div>
     <div style="height:80px;"></div>
 </div>
