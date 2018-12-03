@@ -53,4 +53,6 @@ Route::get('/settings', 'SettingsController@index')->name('settings');
 
 Route::get('/search', 'SearchController@index')->name('search');
 
-Route::get('/secret', 'SecretController@index')->name('secret');
+Route::get('/about', 'AboutController@index')->name('about');
+
+Route::post('/settings', 'UserController@update_avatar');

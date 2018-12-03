@@ -42,17 +42,19 @@ class GroupHomeController extends Controller
 
         // parse form input
         $content = $_GET['content'];
+        date_default_timezone_set('America/Vancouver');
+        $datetime=date('m/d/Y H:i:s');
 
         $currentUserID = \Auth::user()->id;
 
-        DB::table('comments')->insert(['id' => $currentUserID, 'groupID' => $groupID, 'content' => $content, 'timeStamp' => '3:00']);
+        DB::table('comments')->insert(['id' => $currentUserID, 'groupID' => $groupID, 'content' => $content, 'timeStamp' => $datetime]);
 
         $memcheck = DB::table('membership')->where('groupID', $groupID)->where('id', $currentUserID)->count();
         $courses = DB::table('courses')->get();
         $users = DB::table('users')->get();
         $membership = DB::table('membership')->get();
         $studygroup = DB::table('studygroup')->where('groupID', $groupID)->get();
-        $comments = DB::table('comments')->get();
+        $comments = DB::table('comments')->where('groupID', $groupID)->orderBy('timeStamp','desc')->get();
 
         return view('grouphome', ['courses' => $courses, 'users' => $users,
             'membership' => $membership, 'studygroup' => $studygroup, 'comments' => $comments, 'memcheck' => $memcheck
@@ -63,14 +65,18 @@ class GroupHomeController extends Controller
     {
         $currentUserID = \Auth::user()->id;
 
-        DB::table('membership')->insert(['id' => $currentUserID, 'groupID' => $groupID]);
+        $memcheck = DB::table('membership')->where('groupID', $groupID)->where('id', $currentUserID)->count();
+
+        if($memcheck === 0) {
+            DB::table('membership')->insert(['id' => $currentUserID, 'groupID' => $groupID]);    
+        }
 
         $memcheck = DB::table('membership')->where('groupID', $groupID)->where('id', $currentUserID)->count();
         $courses = DB::table('courses')->get();
         $users = DB::table('users')->get();
         $membership = DB::table('membership')->get();
         $studygroup = DB::table('studygroup')->where('groupID', $groupID)->get();
-        $comments = DB::table('comments')->get();
+        $comments = DB::table('comments')->where('groupID', $groupID)->orderBy('timeStamp','desc')->get();
 
         return view('grouphome', ['courses' => $courses, 'users' => $users,
             'membership' => $membership, 'studygroup' => $studygroup, 'comments' => $comments, 'memcheck' => $memcheck, 'join' => True
@@ -88,7 +94,7 @@ class GroupHomeController extends Controller
         $users = DB::table('users')->get();
         $membership = DB::table('membership')->get();
         $studygroup = DB::table('studygroup')->where('groupID', $groupID)->get();
-        $comments = DB::table('comments')->get();
+        $comments = DB::table('comments')->where('groupID', $groupID)->orderBy('timeStamp','desc')->get();
 
         return view('grouphome', ['courses' => $courses, 'users' => $users,
             'membership' => $membership, 'studygroup' => $studygroup, 'comments' => $comments, 'memcheck' => $memcheck, 'leave' => True
@@ -100,11 +106,11 @@ class GroupHomeController extends Controller
         $currentUserID = \Auth::user()->id;
 
         $memcheck = DB::table('membership')->where('groupID', $groupID)->where('id', $currentUserID)->count();
-        $courses = DB::table('courses')->get();
         $users = DB::table('users')->get();
         $membership = DB::table('membership')->get();
         $studygroup = DB::table('studygroup')->where('groupID', $groupID)->get();
-        $comments = DB::table('comments')->where('groupID', $groupID)->get();
+        $courses = DB::table('courses')->where('courseID',$studygroup[0]->courseID)->get();
+        $comments = DB::table('comments')->where('groupID', $groupID)->orderBy('timeStamp', 'desc')->get();
 
         return view('grouphome', ['courses' => $courses, 'users' => $users,
             'membership' => $membership, 'studygroup' => $studygroup, 'comments' => $comments, 'memcheck' => $memcheck
