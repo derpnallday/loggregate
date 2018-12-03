@@ -25,7 +25,11 @@
   <div class="container">
     <h1 class="display-4">Course List</h1>
   </div>
+<<<<<<< Updated upstream
 </div>
+=======
+</div>    
+>>>>>>> Stashed changes
 
 
 <div class=container>
@@ -41,7 +45,10 @@
                 if($num > 0) {
                     echo '</ul></div></div>';
                 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                 echo '<div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
@@ -56,7 +63,12 @@
                 $num += 1;
             }
 
+<<<<<<< Updated upstream
             echo '<li class="list-group-item"><a href="./coursehome/'.$course->courseID.'"><span>'. $course->subject . ' ' . $course->courseNum . ' : ' . $course->name .'</span></a></li>';
+=======
+            echo '<li class="list-group-item">'. $course->subject . ' ' . $course->courseNum . ' : ' . $course->name .'</li>';
+
+>>>>>>> Stashed changes
         }
         ?>
     </div>
